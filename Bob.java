@@ -15,19 +15,35 @@ public class Bob {
 		for(int i = 0; i<znaki.length; i++){
             liczby[i] = (int)znaki[i];
 		   }
-	    for (int a=0;a<256;a++) {
-		    int[] tabelka = new int[znaki.length];
-		    for(int b = 0; b<znaki.length; b++){
+	        try{
+			
+			FileWriter fileWriter = new FileWriter("C:/Users/DELL/Desktop/zenek.txt");
+			PrintWriter printWriter = new PrintWriter(fileWriter);
+	        for (int a=0;a<256;a++) {
+	  
+	    	   int[] tabelka = new int[s.length()];
+	    	   char[] wynik = new char[s.length()];
+	    	
+	    	   printWriter.println(a);
+	    	
+		    for(int b = 0; b<s.length(); b++){
 		    	tabelka[b] = liczby[b]^a; 	
 		     }
 		    
-		    char[] wynik = new char[znaki.length];
-		    for(int j = 0; j<znaki.length; j++){
+		    
+		    for(int j = 0; j<s.length(); j++){
 		    	wynik[j] = (char)tabelka[j];
-                System.out.print(wynik[j]);
-             }
-		    System.out.println("\n");
-		}
+		    	printWriter.print(wynik[j]);
+		    }
+		    
+		    printWriter.print("\n");
+		    
+		    }
+	  
+	        printWriter.close();
+		  } catch (Exception e) {
+			e.printStackTrace();
+		   }
 	    
 	    }
 	
